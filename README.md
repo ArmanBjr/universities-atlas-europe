@@ -11,6 +11,17 @@ ones you can *afford to enter and legally stay in afterwards*.
 
 **Repo:** [ArmanBjr/universitis-atlas-europe](https://github.com/ArmanBjr/universitis-atlas-europe)
 
+![Atlas globe overview with institution clusters across Europe](images/globe-overview.png)
+
+<p align="center">
+  <img src="images/germany-clusters.png" alt="Germany filter showing city clusters" width="48%" />
+  <img src="images/detail-panel.png" alt="TU Munich detail with immigration and cost facts" width="48%" />
+</p>
+
+<p align="center">
+  <img src="images/map-hover.png" alt="Hover label on Technical University of Munich" width="40%" />
+</p>
+
 ---
 
 ## Quick start

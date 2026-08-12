@@ -68,6 +68,9 @@ export function FilterPanel({ visibleCount }: { visibleCount: number }) {
           onChange={(e) => setFilter("query", e.target.value)}
           placeholder="Search institutions…"
           aria-label="Search institutions by name"
+          // Browser BIDI / translation extensions inject dir + data-bidifix before
+          // hydration; without this, React reports a harmless attribute mismatch.
+          suppressHydrationWarning
           className="mt-3 w-full rounded-lg border border-hairline bg-black/30 px-3 py-2 text-[13px] text-ink
             placeholder:text-ink-faint focus:border-signal/60 focus:bg-black/40"
         />
