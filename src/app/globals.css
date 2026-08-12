@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/**
+ * Direction: night-shift atlas. The map is the product, so the chrome is a
+ * dark, low-chroma instrument panel that sits *over* the map without competing
+ * with it. Accent hues are reserved for meaning (tracked status, selection),
+ * never for decoration.
+ */
+@theme {
+  --color-void: oklch(16% 0.018 260);
+  --color-abyss: oklch(20% 0.021 260);
+  --color-slate-panel: oklch(24% 0.022 260);
+  --color-hairline: oklch(32% 0.02 260);
+  --color-hairline-bright: oklch(42% 0.025 260);
+
+  --color-ink: oklch(96% 0.005 260);
+  --color-ink-dim: oklch(74% 0.012 260);
+  --color-ink-faint: oklch(58% 0.014 260);
+
+  --color-beacon: oklch(78% 0.16 78);
+  --color-beacon-deep: oklch(62% 0.15 62);
+  --color-signal: oklch(76% 0.14 205);
+
+  /* Status ramp: cold (just looking) -> warm (committed) -> green (done). */
+  --color-st-interested: oklch(62% 0.03 250);
+  --color-st-shortlisted: oklch(72% 0.12 230);
+  --color-st-preparing: oklch(76% 0.13 195);
+  --color-st-applied: oklch(80% 0.15 95);
+  --color-st-interview: oklch(78% 0.16 65);
+  --color-st-admitted: oklch(76% 0.17 145);
+  --color-st-enrolled: oklch(72% 0.19 155);
+  --color-st-rejected: oklch(62% 0.16 25);
+  --color-st-declined: oklch(52% 0.04 280);
+
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  border-color: var(--color-hairline);
+  min-width: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* the map owns the viewport; panels scroll internally */
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04";
+}
+
+/* Numerals in data tables must line up column-to-column. */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  font-weight: 600;
+}
+
+/* Frosted instrument panel. The inset highlight is what stops it reading flat. */
+.panel {
+  background: color-mix(in oklab, var(--color-abyss) 88%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--color-hairline);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, white 6%, transparent) inset,
+    0 24px 60px -20px oklch(0% 0 0 / 0.8);
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hairline-bright) transparent;
+}
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--color-hairline-bright);
+  border-radius: 99px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* MapLibre ships light-themed chrome that clashes badly with the dark shell. */
+.maplibregl-ctrl-attrib {
+  background: color-mix(in oklab, var(--color-void) 82%, transparent) !important;
+  color: var(--color-ink-faint) !important;
+  font-size: 10px !important;
+}
+.maplibregl-ctrl-attrib a {
+  color: var(--color-ink-dim) !important;
+}
+.maplibregl-ctrl-group {
+  background: color-mix(in oklab, var(--color-abyss) 92%, transparent) !important;
+  border: 1px solid var(--color-hairline) !important;
+}
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--color-hairline) !important;
+}
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(1) brightness(1.6);
+}
+.maplibregl-popup-content {
+  background: var(--color-abyss) !important;
+  color: var(--color-ink) !important;
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  padding: 8px 10px !important;
+  font-size: 12px;
+  box-shadow: 0 12px 32px -12px oklch(0% 0 0 / 0.9);
+}
+.maplibregl-popup-tip {
+  border-top-color: var(--color-abyss) !important;
+  border-bottom-color: var(--color-abyss) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
