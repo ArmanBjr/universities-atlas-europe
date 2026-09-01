@@ -6,10 +6,11 @@ students, living costs, proof-of-funds thresholds, post-study work rights, route
 to permanent residence, and how much is taught in English. A personal tracker
 keeps your shortlist on the same map as the constraints.
 
+**Author:** **Arman Bijari** — [ArmanBjr](https://github.com/ArmanBjr)  
+**Repo:** [github.com/ArmanBjr/universitis-atlas-europe](https://github.com/ArmanBjr/universitis-atlas-europe)
+
 Ranking sites tell you which universities are *good*. Almost none tell you which
 ones you can *afford to enter and legally stay in afterwards*.
-
-**Repo:** [ArmanBjr/universitis-atlas-europe](https://github.com/ArmanBjr/universitis-atlas-europe)
 
 ![Atlas globe overview with institution clusters across Europe](images/globe-overview.png)
 
@@ -27,6 +28,9 @@ ones you can *afford to enter and legally stay in afterwards*.
 ## Quick start
 
 ```bash
+git clone https://github.com/ArmanBjr/universitis-atlas-europe.git
+cd universitis-atlas-europe
+
 npm install
 npm run setup          # creates data/app.db and loads data/universities.json
 npm run dev            # http://localhost:3000
@@ -164,6 +168,8 @@ Basemap: CARTO dark-matter raster tiles (free, no API key).
 ---
 
 ## Licence and attribution
+
+Application code released under the [MIT License](LICENSE).
 
 Institution data from [Wikidata](https://www.wikidata.org) under
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Basemap © CARTO,

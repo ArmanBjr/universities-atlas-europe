@@ -17,14 +17,20 @@ data/*.db
 data/*.db-journal
 data/*.db-wal
 data/*.db-shm
+data/*.log
 
 # Session / agent handoff — not part of the product
 STATUS.md
 .claude/
+.cursor/
 AGENTS.md
 CLAUDE.md
 
+# IDE / OS
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
+desktop.ini
 *.log
-data/*.log
+coverage/
